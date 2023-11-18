@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
 
 * {
     padding: 0;
@@ -8,6 +9,8 @@
 
 body {
     max-width: 1920px;
+    font-family: 'Manrope', arial;
+    background: #EDEDED;
 }
 
 header {
@@ -84,4 +87,107 @@ nav {
     height: 100%;
     object-fit: cover;
     z-index: -1;
+}
+
+.filter_section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 3vw;
+    margin-top: 30px;
+}
+
+.dropdown_section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3vw;
+}
+
+.dropdown {
+    display: inline-flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 200px;
+    background: #FFF;
+    margin-bottom: 20px;
+}
+
+.dropdown_title-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 57px;
+    cursor: pointer;
+}
+
+.dropdown_title-chevron.active {
+    transform: rotate(180deg);
+}
+
+.dropdown_content {
+    width: 100%;
+    max-width: 200px;
+    height: 0;
+}
+
+.dropdown_content.active {
+    height: auto;
+}
+
+.dropdown_search-section {
+    position: relative;
+    top: 1px;
+    padding: 0 20px;
+    margin-bottom: 15px;
+}
+
+.dropdown_search-input {
+    position: relative;
+    width: 100%;
+    height: 36px;
+    padding: 10px;
+    border: none;
+    outline: 1px solid #C6C6C6;
+}
+
+.search-input_button {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.dropdown_list {
+    list-style-type: none;
+    max-height: 150px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    margin-bottom: 20px;
+}
+
+.dropdown_list::-webkit-scrollbar {
+    display: none;
+}
+
+.dropdown_item {
+    padding: 5px 20px;
+}
+
+.dropdown_item:hover {
+    background: #FFD15B;
+    cursor: pointer;
+}
+
+.txt_filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 57px;
+    font-family: 'Anton', arial;
+    font-size: 21px;
+    color: #1B1B1B;
 }

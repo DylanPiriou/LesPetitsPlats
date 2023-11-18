@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/style.css" />
-    <script src="scripts/app.js" defer></script>
+    <script src="scripts/app.js" type="module" defer></script>
     <title>Les Petits Plats</title>
   </head>
   <body>
@@ -20,7 +20,56 @@
       <img src="assets/imgs/hero-banner.jpg" alt="bannière" class="hero_img">
     </header>
     <main>
-      <div class="filter_section"></div>
+      <div class="filter_section">
+
+        <div class="dropdown_section">
+          <div class="dropdown" id="ingredients">
+              <div class="dropdown_title-section">
+                  <h3 class="dropdown_title">Ingrédients</h3>
+                  <img src="assets/svg/close-chevron.svg" alt="" class="dropdown_title-chevron">
+              </div>
+              <div class="dropdown_content">
+                  <div class="dropdown_search-section">
+                      <input type="search" name="" id="" class="dropdown_search-input">
+                      <img src="assets/svg/dropdown-loop.svg" alt="" class="search-input_button">
+                  </div>
+                  <ul class="dropdown_list" id="ingredients_list">
+                  </ul>
+              </div>
+          </div>
+          <div class="dropdown" id="appareils">
+              <div class="dropdown_title-section">
+                  <h3 class="dropdown_title">Appareils</h3>
+                  <img src="assets/svg/close-chevron.svg" alt="" class="dropdown_title-chevron">
+              </div>
+              <div class="dropdown_content">
+                  <div class="dropdown_search-section">
+                      <input type="search" name="" id="" class="dropdown_search-input">
+                      <img src="assets/svg/dropdown-loop.svg" alt="" class="search-input_button">
+                  </div>
+                  <ul class="dropdown_list" id="appareils_list">
+                  </ul>
+              </div>
+          </div>
+          <div class="dropdown" id="ustensiles">
+              <div class="dropdown_title-section">
+                  <h3 class="dropdown_title">Ustensiles</h3>
+                  <img src="assets/svg/close-chevron.svg" alt="" class="dropdown_title-chevron">
+              </div>
+              <div class="dropdown_content">
+                  <div class="dropdown_search-section">
+                      <input type="search" name="" id="" class="dropdown_search-input">
+                      <img src="assets/svg/dropdown-loop.svg" alt="" class="search-input_button">
+                  </div>
+                  <ul class="dropdown_list" id="ustensiles_list">
+                  </ul>
+              </div>
+          </div>
+        </div>
+
+        <span class="txt_filter">1500 recettes</span>
+
+      </div>
       <div class="recipes_section"></div>
     </main>
   </body>
