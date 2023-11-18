@@ -1,3 +1,4 @@
+import { card } from "./card.js";
 import { recipes } from "./recipes.js";
 
 // Sélection de tous les éléments de titre et de contenu des dropdowns
@@ -17,12 +18,34 @@ dropdownTitles.forEach((title, index) => {
 dropdownInputs.forEach(input => {
     input.addEventListener("keydown", (e) => {
         const search = e.target.value;
-        const results = uniqueIngredients.filter(ingredient => ingredient.toLowerCase().includes(search));
-        if(e.key === "Enter"){
-            console.log(results);
+        let results = uniqueIngredients.filter(ingredient => ingredient.toLowerCase().includes(search));
+        if (e.target.value === "") {
+            handleDefaultItems();
         }
+        if (e.key === "Enter") {
+            results = uniqueIngredients.filter(ingredient => ingredient.toLowerCase().includes(search));
+
+            if (results.length > 0) {
+                handleSearchResults(results, dropdownList);
+            } else {
+                handleDefaultItems();
+            }
+        } 
     })
 })
+
+function handleSearchResults(results, listElement) {
+    // Effacer les anciens résultats
+    listElement.innerHTML = "";
+
+    // Afficher les nouveaux résultats de la recherche
+    results.forEach(result => {
+        const li = document.createElement("li");
+        li.classList = "dropdown_item";
+        li.textContent = result;
+        listElement.appendChild(li);
+    });
+}
     
 
 // Gestion des données issues des recettes
@@ -50,21 +73,31 @@ const firstUstensils = uniqueUstensils.slice(0, 6);
 const dropdownList = document.getElementById("ingredients_list");
 const appareilsList = document.getElementById("appareils_list");
 const ustensilesList = document.getElementById("ustensiles_list");
-for ( const ingredient of firstIngredients ) {
-    const li = document.createElement("li");
-    li.classList = "dropdown_item";
-    li.textContent = ingredient;
-    dropdownList.appendChild(li);
+function handleDefaultItems(){
+    for ( const ingredient of firstIngredients ) {
+        const li = document.createElement("li");
+        li.classList = "dropdown_item";
+        li.textContent = ingredient;
+        dropdownList.appendChild(li);
+    }
+    for ( const appliance of firstAppliances ) {
+        const li = document.createElement("li");
+        li.classList = "dropdown_item";
+        li.textContent = appliance;
+        appareilsList.appendChild(li);
+    }
+    for ( const ustensil of firstUstensils ) {
+        const li = document.createElement("li");
+        li.classList = "dropdown_item";
+        li.textContent = ustensil;
+        ustensilesList.appendChild(li);
+    }
 }
-for ( const appliance of firstAppliances ) {
-    const li = document.createElement("li");
-    li.classList = "dropdown_item";
-    li.textContent = appliance;
-    appareilsList.appendChild(li);
-}
-for ( const ustensil of firstUstensils ) {
-    const li = document.createElement("li");
-    li.classList = "dropdown_item";
-    li.textContent = ustensil;
-    ustensilesList.appendChild(li);
-}
+handleDefaultItems();
+
+
+// Créartion des cartes
+
+const gallery = recipes.slice(0, 10).map(recipe => {
+    card(recipe);
+});
