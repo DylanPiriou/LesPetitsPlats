@@ -11,6 +11,7 @@ body {
     max-width: 1920px;
     font-family: 'Manrope', arial;
     background: #EDEDED;
+    margin: 0 auto;
 }
 
 header {
@@ -71,6 +72,15 @@ nav {
     aspect-ratio: 1;
     border: none;
     outline: none;
+    background-image: url('./svg/loop.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.search_button:hover {
+    background-image: url('./svg/loop_alt.svg');
 }
 
 .search_button img {
@@ -107,7 +117,7 @@ nav {
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 3vw;
+    gap: 20px 3vw;
     width: 100%;
 }
 
@@ -171,7 +181,7 @@ nav {
     position: relative;
     top: 1px;
     padding: 0 20px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .dropdown_search-input {
@@ -227,6 +237,7 @@ nav {
     flex-wrap: wrap;
     gap: 3vw;
     padding: 0 3vw;
+    margin-bottom: 45px;
 }
 
 .recipe_card {
@@ -303,7 +314,7 @@ nav {
     font-style: normal;
     font-weight: 400;
     max-height: 120px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .recipe_ingredients_list {
@@ -315,7 +326,7 @@ nav {
 }
 
 .recipe_ingredient {
-    flex: 0 0 calc(33.333% - 10px);
+    flex: 0 0 calc(50% - 10px);
     box-sizing: border-box;
 }
 
@@ -327,4 +338,22 @@ nav {
 .recipe_ingredient_txt {
     color: #7A7A7A;
     font-size: 14px;
+}
+
+.load_more {
+    display: block;
+    width: 100%;
+    padding: 0 3vw 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3vw;
+    cursor: pointer;
+    color: #7A7A7A;;
+}
+
+.load_more .line {
+    flex: 1;
+    height: 1px;
+    background: #b3b3b3;
 }

@@ -78,4 +78,6 @@ export const card = (recipe) => {
 
         recipeIngredientsList.appendChild(ingredientItem);
     });
+
+    return recipeCard;
 };
