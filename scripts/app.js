@@ -1,11 +1,14 @@
 import { card } from "./card.js";
 import { recipes } from "./recipes.js";
+import { handleTags } from "./tags.js";
 
-// Sélection de tous les éléments de titre et de contenu des dropdowns
 const dropdownTitles = document.querySelectorAll(".dropdown_title-section");
 const dropdownContents = document.querySelectorAll(".dropdown_content");
 const chevrons = document.querySelectorAll(".dropdown_title-chevron");
 const dropdownInputs = document.querySelectorAll(".dropdown_search-input");
+const dropdownList = document.getElementById("ingredients_list");
+const appareilsList = document.getElementById("appareils_list");
+const ustensilesList = document.getElementById("ustensiles_list");
 
 // Ajout d'un gestionnaire d'événement pour chaque titre de dropdown
 dropdownTitles.forEach((title, index) => {
@@ -15,24 +18,36 @@ dropdownTitles.forEach((title, index) => {
     });
 });
 
+// Fonction pour filtrer les éléments et mettre à jour le dropdown
+function filterAndUpdateDropdown(search, itemList, dropdownType) {
+    const filteredItems = itemList.filter(item => item.toLowerCase().includes(search));
+    if (filteredItems.length > 0) {
+        handleSearchResults(filteredItems, dropdownType);
+    } else {
+        handleDefaultItems();
+    }
+}
+
+// Écouteurs d'événements pour chaque dropdown
 dropdownInputs.forEach(input => {
     input.addEventListener("keydown", (e) => {
-        const search = e.target.value;
-        let results = uniqueIngredients.filter(ingredient => ingredient.toLowerCase().includes(search));
-        if (e.target.value === "") {
+        const search = e.target.value.toLowerCase().trim();
+
+        if (search === "") {
             handleDefaultItems();
         }
-        if (e.key === "Enter") {
-            results = uniqueIngredients.filter(ingredient => ingredient.toLowerCase().includes(search));
 
-            if (results.length > 0) {
-                handleSearchResults(results, dropdownList);
-            } else {
-                handleDefaultItems();
+        if (e.key === "Enter") {
+            if (e.target.id === "ingredientsInput") {
+                filterAndUpdateDropdown(search, uniqueIngredients, dropdownList);
+            } else if (e.target.id === "appliancesInput") {
+                filterAndUpdateDropdown(search, uniqueAppliances, appareilsList);
+            } else if (e.target.id === "ustensilsInput") {
+                filterAndUpdateDropdown(search, uniqueUstensils, ustensilesList);
             }
-        } 
-    })
-})
+        }
+    });
+});
 
 function handleSearchResults(results, listElement) {
     // Effacer les anciens résultats
@@ -40,13 +55,50 @@ function handleSearchResults(results, listElement) {
 
     // Afficher les nouveaux résultats de la recherche
     results.forEach(result => {
+        console.log(result)
         const li = document.createElement("li");
         li.classList = "dropdown_item";
         li.textContent = result;
         listElement.appendChild(li);
+        handleTags(li);
     });
 }
-    
+
+// Liste d'items par défaut
+function handleDefaultItems() {
+    for (const ingredient of firstIngredients) {
+        const li = document.createElement("li");
+        li.classList = "dropdown_item";
+        li.textContent = ingredient;
+        dropdownList.appendChild(li);
+        handleTags(li);
+    }
+    for (const appliance of firstAppliances) {
+        const li = document.createElement("li");
+        li.classList = "dropdown_item";
+        li.textContent = appliance;
+        appareilsList.appendChild(li);
+        handleTags(li);
+    }
+    for (const ustensil of firstUstensils) {
+        const li = document.createElement("li");
+        li.classList = "dropdown_item";
+        li.textContent = ustensil;
+        ustensilesList.appendChild(li);
+        handleTags(li);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    handleDefaultItems();
+    const dropdonwItem = document.querySelectorAll(".dropdown_item");
+    console.log(dropdonwItem)
+    dropdonwItem && dropdonwItem.forEach(item => {
+        item.addEventListener("click", () => {
+            console.log("click")
+        })
+    })
+})
 
 // Gestion des données issues des recettes
 // Extraction des appareils uniques avec la première lettre en majuscule
@@ -68,36 +120,7 @@ const uniqueUstensils = Array.from(new Set(recipes.flatMap(recipe => recipe.uste
 console.log(uniqueUstensils);
 const firstUstensils = uniqueUstensils.slice(0, 6);
 
-
-// Liste d'items par défaut
-const dropdownList = document.getElementById("ingredients_list");
-const appareilsList = document.getElementById("appareils_list");
-const ustensilesList = document.getElementById("ustensiles_list");
-function handleDefaultItems(){
-    for ( const ingredient of firstIngredients ) {
-        const li = document.createElement("li");
-        li.classList = "dropdown_item";
-        li.textContent = ingredient;
-        dropdownList.appendChild(li);
-    }
-    for ( const appliance of firstAppliances ) {
-        const li = document.createElement("li");
-        li.classList = "dropdown_item";
-        li.textContent = appliance;
-        appareilsList.appendChild(li);
-    }
-    for ( const ustensil of firstUstensils ) {
-        const li = document.createElement("li");
-        li.classList = "dropdown_item";
-        li.textContent = ustensil;
-        ustensilesList.appendChild(li);
-    }
-}
-handleDefaultItems();
-
-
 // Créartion des cartes
-
 const gallery = recipes.slice(0, 10).map(recipe => {
     card(recipe);
 });
