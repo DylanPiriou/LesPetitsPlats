@@ -1,3 +1,4 @@
+// Création des cards
 export const card = (recipe) => {
     const recipesSection = document.querySelector(".recipes_section");
 
