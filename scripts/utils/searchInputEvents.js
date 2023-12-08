@@ -19,7 +19,7 @@ export function handleSearchInput() {
         const value = searchInput.value.trim();
         handleSearch(value);
     });
-    
+
     // Fonction recherche
     function handleSearch(value) {
         const filteredRecipes = filterRecipesByValue(value);
