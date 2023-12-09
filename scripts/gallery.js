@@ -44,6 +44,12 @@ export function updateRecipeCount() {
 export function handleUpdateWithDropdown(content) {
 	const updatedRecipes = getFilteredRecipes();
 
+	// Si il n'y a plus de tags alors afficher les cartes par défaut
+	if(content.length === 0) {
+		handleDefaultCards();
+	}
+
+	// Filtre sur les recette déjà filtrées ou sur tutes les recettes
 	const filteredRecipes =
 		updatedRecipes.length !== 0
 			? updatedRecipes.filter((recipe) => {
