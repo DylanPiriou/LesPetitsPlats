@@ -1,4 +1,4 @@
-import { handleUpdateWithDropdown } from "../gallery.js";
+import { handleDefaultCards, handleUpdateWithDropdown } from "../gallery.js";
 import { filterRecipesByValue } from "./search.js";
 
 // Créer un tableau pour stocker les tags sélectionnés
@@ -26,7 +26,6 @@ export function handleTags(itemList) {
 
         // Ajouter le tag au tableau selectedTags
         selectedTags.push(content);
-        console.log(selectedTags);
         handleUpdateWithDropdown(selectedTags); // Mettre à jour avec les tags actuels
 
         closeBtn.addEventListener("click", (e) => {
@@ -40,3 +39,19 @@ export function handleTags(itemList) {
         });
     });
 }
+
+export function deleteTags() {
+	const tagsContainer = document.querySelectorAll(".tags");
+
+	// Parcourir tous les tags dans le conteneur et les supprimer
+	tagsContainer.forEach((container) => {
+		while (container.firstChild) {
+			container.removeChild(container.firstChild);
+		}
+	});
+
+	// Réinitialiser le tableau selectedTags
+	selectedTags = [];
+	handleDefaultCards();
+}
+

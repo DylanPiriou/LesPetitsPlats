@@ -1,6 +1,6 @@
 import { recipes } from "./recipes.js";
 
-// Fonction recherche 2
+// Fonction recherche native
 export function filterRecipesByValue(value) {
     const filteredRecipes = [];
 
