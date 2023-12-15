@@ -1,80 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/style.css" />
-    <script src="scripts/app.js" type="module" defer></script>
-    <title>Les Petits Plats</title>
-  </head>
-  <body>
-      <header>
-        <nav><a href="#" class="nav_logo"><img src="assets/svg/les-petits-plats.svg" alt="les petits plats"></a></nav>
-      <h1 class="hero_title">
-        CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
-      </h1>
-      <div class="search_bar">
-        <input type="search" name="" id="" placeholder="Recherche une recette, un ingrédient..." class="search_input" />
-        <button class="search_button"></button>
-      </div>
-      <img src="assets/imgs/hero-banner.jpg" alt="bannière" class="hero_img">
-    </header>
-    <main>
-      <div class="filter_section">
-
-        <div class="filter_wrapper">
-
-          <div class="dropdown_section">
-            <div class="dropdown" id="ingredients">
-                <div class="dropdown_title-section">
-                    <h3 class="dropdown_title">Ingrédients</h3>
-                    <img src="assets/svg/close-chevron.svg" alt="" class="dropdown_title-chevron">
-                </div>
-                <div class="dropdown_content">
-                    <div class="dropdown_search-section">
-                        <input type="search" name="" id="ingredientsInput" class="dropdown_search-input">
-                        <img src="assets/svg/dropdown-loop.svg" alt="" class="search-input_button">
-                    </div>
-                    <ul class="dropdown_list" id="ingredients_list">
-                    </ul>
-                </div>
-            </div>
-            <div class="dropdown" id="appareils">
-                <div class="dropdown_title-section">
-                    <h3 class="dropdown_title">Appareils</h3>
-                    <img src="assets/svg/close-chevron.svg" alt="" class="dropdown_title-chevron">
-                </div>
-                <div class="dropdown_content">
-                    <div class="dropdown_search-section">
-                        <input type="search" name="" id="appliancesInput" class="dropdown_search-input">
-                        <img src="assets/svg/dropdown-loop.svg" alt="" class="search-input_button">
-                    </div>
-                    <ul class="dropdown_list" id="appareils_list">
-                    </ul>
-                </div>
-            </div>
-            <div class="dropdown" id="ustensiles">
-                <div class="dropdown_title-section">
-                    <h3 class="dropdown_title">Ustensiles</h3>
-                    <img src="assets/svg/close-chevron.svg" alt="" class="dropdown_title-chevron">
-                </div>
-                <div class="dropdown_content">
-                    <div class="dropdown_search-section">
-                        <input type="search" name="" id="ustensilsInput" class="dropdown_search-input">
-                        <img src="assets/svg/dropdown-loop.svg" alt="" class="search-input_button">
-                    </div>
-                    <ul class="dropdown_list" id="ustensiles_list">
-                    </ul>
-                </div>
-            </div>
-          </div>
-          <span class="txt_filter"></span>
-        </div>
-        <div class="tags"></div>
-
-      </div>
-      <div class="recipes_section">
-      </div>
-    </main>
-  </body>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="assets/style.css" />
+		<title>Les Petits Plats</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="#" class="nav_logo"
+					><img src="assets/svg/les-petits-plats.svg" alt="les petits plats"
+				/></a>
+			</nav>
+			<h1 class="hero_title">
+				CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+			</h1>
+			<div class="search_bar">
+				<input
+					type="search"
+					name="search"
+					placeholder="Recherche une recette, un ingrédient..."
+					class="search_input"
+				/>
+				<button class="search_button"></button>
+			</div>
+			<img src="assets/imgs/hero-banner.jpg" alt="bannière" class="hero_img" />
+		</header>
+		<main>
+			<div class="filter_section">
+				<div class="filter_wrapper">
+					<div class="dropdown_section">
+						<div class="dropdown" id="ingredients">
+							<div class="dropdown_title-section">
+								<h3 class="dropdown_title">Ingrédients</h3>
+								<img
+									src="assets/svg/close-chevron.svg"
+									alt="chevron"
+									class="dropdown_title-chevron"
+								/>
+							</div>
+							<div class="dropdown_content">
+								<div class="dropdown_search-section">
+									<input
+										type="search"
+										name="search"
+										id="ingredientsInput"
+										class="dropdown_search-input"
+									/>
+									<img
+										src="assets/svg/dropdown-loop.svg"
+										alt="loupe"
+										class="search-input_button"
+									/>
+								</div>
+								<ul class="dropdown_list" id="ingredients_list"></ul>
+							</div>
+						</div>
+						<div class="dropdown" id="appareils">
+							<div class="dropdown_title-section">
+								<h3 class="dropdown_title">Appareils</h3>
+								<img
+									src="assets/svg/close-chevron.svg"
+									alt="chevron"
+									class="dropdown_title-chevron"
+								/>
+							</div>
+							<div class="dropdown_content">
+								<div class="dropdown_search-section">
+									<input
+										type="search"
+										name="search"
+										id="appliancesInput"
+										class="dropdown_search-input"
+									/>
+									<img
+										src="assets/svg/dropdown-loop.svg"
+										alt="loupe"
+										class="search-input_button"
+									/>
+								</div>
+								<ul class="dropdown_list" id="appareils_list"></ul>
+							</div>
+						</div>
+						<div class="dropdown" id="ustensiles">
+							<div class="dropdown_title-section">
+								<h3 class="dropdown_title">Ustensiles</h3>
+								<img
+									src="assets/svg/close-chevron.svg"
+									alt="chevron"
+									class="dropdown_title-chevron"
+								/>
+							</div>
+							<div class="dropdown_content">
+								<div class="dropdown_search-section">
+									<input
+										type="search"
+										name="search"
+										id="ustensilsInput"
+										class="dropdown_search-input"
+									/>
+									<img
+										src="assets/svg/dropdown-loop.svg"
+										alt="loupe"
+										class="search-input_button"
+									/>
+								</div>
+								<ul class="dropdown_list" id="ustensiles_list"></ul>
+							</div>
+						</div>
+					</div>
+					<span class="txt_filter"></span>
+				</div>
+				<div class="tags"></div>
+			</div>
+			<div class="recipes_section"></div>
+		</main>
+		<script src="scripts/app.js" type="module"></script>
+	</body>
 </html>
